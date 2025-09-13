@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react';
 import './App.css';
-import socketIO from 'socket.io-client';
-
-const WS = 'http://localhost:8080';
+import { JoinButton } from './components/JoinButton';
 
 function App() {
-  useEffect(() => {
-    const socket = socketIO(WS);
-    socket.on('connect', () => {
-      console.log('connected to server');
-    });
-  }, []);
-
   return (
-    <div className='App'>
-      <button>Start new meeting</button>
+    <div className='flex justify-center items-center'>
+      <JoinButton />
     </div>
   );
 }
