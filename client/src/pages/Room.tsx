@@ -14,8 +14,15 @@ export const Room = () => {
 
   return (
     <div>
-      <p>Room Number: {id}</p>
       <VideoPlayer stream={stream} />
+      <p className='text-2xl font-bold'>
+        Room Number: <span className='text-rose-400'>{id}</span>
+      </p>
+      {me && (
+        <p className='text-2xl font-bold'>
+          My ID: <span className='text-emerald-400'>{me._id}</span>
+        </p>
+      )}
     </div>
   );
 };
