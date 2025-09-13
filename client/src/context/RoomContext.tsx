@@ -15,6 +15,7 @@ const RoomProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const navigate = useNavigate();
   const [me, setMe] = useState<Peer | null>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
 
   const enterRoom = ({ roomId }: { roomId: string }) => {
     console.log({ roomId });
@@ -28,11 +29,33 @@ const RoomProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const peer = new Peer(uuidv4());
     setMe(peer);
+
+    try {
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: true })
+        .then(setStream);
+    } catch (error) {
+      console.error(error);
+    }
+
     ws.on('room-created', enterRoom);
     ws.on('get-users', getUsers);
   }, []);
+
+  useEffect(() => {
+    if (!me || !stream) return;
+
+    ws.on('user-joined', ({ peerId }) => {
+      const call = me.call(peerId, stream);
+    });
+
+    me.on('call', (call) => {
+      call.answer(stream);
+    });
+  }, [me, stream]);
+
   return (
-    <RoomContext.Provider value={{ ws, me, getUsers }}>
+    <RoomContext.Provider value={{ ws, me, getUsers, stream }}>
       {children}
     </RoomContext.Provider>
   );
