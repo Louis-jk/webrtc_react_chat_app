@@ -27,10 +27,23 @@ export const roomHandler = (socket: Socket) => {
         console.log("user already in room", roomId, peerId);
       }
       socket.join(roomId);
+      socket.to(roomId).emit("user-joined", { peerId });
       socket.emit("get-users", {
         roomId,
         participants: rooms[roomId],
       });
+    }
+
+    socket.on("disconnect", () => {
+      console.log("user left the room", peerId);
+      leaveRoom({ roomId, peerId });
+    });
+  };
+
+  const leaveRoom = ({ roomId, peerId }: IRoomParams) => {
+    if (rooms[roomId]) {
+      rooms[roomId] = rooms[roomId].filter((id) => id !== peerId);
+      socket.to(roomId).emit("user-left", { peerId });
     }
   };
 
