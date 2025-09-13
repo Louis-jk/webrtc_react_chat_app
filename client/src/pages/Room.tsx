@@ -4,11 +4,12 @@ import { RoomContext } from '../context/RoomContext';
 
 export const Room = () => {
   const { id } = useParams();
-  const { ws } = useContext(RoomContext);
+  const { ws, me } = useContext(RoomContext);
 
   useEffect(() => {
-    ws.emit('join_room', { roomId: id });
-  }, [id]);
+    if (me) ws.emit('join-room', { roomId: id, peerId: me._id });
+    console.log({ me });
+  }, [id, me, ws]);
 
   return <div>Room Number: {id}</div>;
 };

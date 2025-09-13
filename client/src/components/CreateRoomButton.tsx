@@ -2,11 +2,13 @@ import { useCallback, useContext } from 'react';
 import { RoomContext } from '../context/RoomContext';
 
 export const CreateRoomButton = () => {
-  const { ws } = useContext(RoomContext);
+  const { ws, me } = useContext(RoomContext);
 
   const handleCreateRoom = useCallback(() => {
-    ws.emit('create_room');
-  }, [ws]);
+    if (me) {
+      ws.emit('create-room', { peerId: me.id });
+    }
+  }, [ws, me]);
 
   return (
     <button

@@ -603,6 +603,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@msgpack/msgpack@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "@msgpack/msgpack@npm:2.8.0"
+  checksum: 10c0/5964ed3daad9ccf314238da81c91152dc693bca167b2469445c1d3ce0495443612e543d052281061a91ec48ed44a6a49dd3a334b5d0dbe2dc2db6ea6143e5787
+  languageName: node
+  linkType: hard
+
 "@napi-rs/wasm-runtime@npm:^0.2.12":
   version: 0.2.12
   resolution: "@napi-rs/wasm-runtime@npm:0.2.12"
@@ -1079,6 +1086,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/uuid@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@types/uuid@npm:10.0.0"
+  checksum: 10c0/9a1404bf287164481cb9b97f6bb638f78f955be57c40c6513b7655160beb29df6f84c915aaf4089a1559c216557dc4d2f79b48d978742d3ae10b937420ddac60
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:8.43.0":
   version: 8.43.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.43.0"
@@ -1431,11 +1445,13 @@ __metadata:
     "@tailwindcss/vite": "npm:^4.1.13"
     "@types/react": "npm:^19.1.10"
     "@types/react-dom": "npm:^19.1.7"
+    "@types/uuid": "npm:^10.0.0"
     "@vitejs/plugin-react": "npm:^5.0.0"
     eslint: "npm:^9.33.0"
     eslint-plugin-react-hooks: "npm:^5.2.0"
     eslint-plugin-react-refresh: "npm:^0.4.20"
     globals: "npm:^16.3.0"
+    peerjs: "npm:^1.5.5"
     react: "npm:^19.1.1"
     react-dom: "npm:^19.1.1"
     react-router-dom: "npm:^7.9.1"
@@ -1443,6 +1459,7 @@ __metadata:
     tailwindcss: "npm:^4.1.13"
     typescript: "npm:~5.8.3"
     typescript-eslint: "npm:^8.39.1"
+    uuid: "npm:^13.0.0"
     vite: "npm:^7.1.2"
   languageName: unknown
   linkType: soft
@@ -1856,6 +1873,13 @@ __metadata:
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
   checksum: 10c0/9a2fe69a41bfdade834ba7c42de4723c97ec776e40656919c62cbd13607c45e127a003f05f724a1ea55e5029a4cf2de444b13009f2af71271e42d93a637137c7
+  languageName: node
+  linkType: hard
+
+"eventemitter3@npm:^4.0.7":
+  version: 4.0.7
+  resolution: "eventemitter3@npm:4.0.7"
+  checksum: 10c0/5f6d97cbcbac47be798e6355e3a7639a84ee1f7d9b199a07017f1d2f1e2fe236004d14fa5dfaeba661f94ea57805385e326236a6debbc7145c8877fbc0297c6b
   languageName: node
   linkType: hard
 
@@ -2733,6 +2757,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"peerjs-js-binarypack@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "peerjs-js-binarypack@npm:2.1.0"
+  checksum: 10c0/562b6ef27b0de6b152dcab3e13684d38decfff8b51967e12ae14707b1292a78c162ce6befc9ae63ffefec81555eb37372a0e8a530aeabdc69bea3348e4a43790
+  languageName: node
+  linkType: hard
+
+"peerjs@npm:^1.5.5":
+  version: 1.5.5
+  resolution: "peerjs@npm:1.5.5"
+  dependencies:
+    "@msgpack/msgpack": "npm:^2.8.0"
+    eventemitter3: "npm:^4.0.7"
+    peerjs-js-binarypack: "npm:^2.1.0"
+    webrtc-adapter: "npm:^9.0.0"
+  checksum: 10c0/4eb03fd18b58efb8eb563d89eefde8a7a52cfc385aab136624cff609f2e3044f980bc6c26201300e64d0b6e179aedf6de64e3cc4e4b840b122a6548f1f2c69f8
+  languageName: node
+  linkType: hard
+
 "picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
@@ -2975,6 +3018,13 @@ __metadata:
   version: 0.26.0
   resolution: "scheduler@npm:0.26.0"
   checksum: 10c0/5b8d5bfddaae3513410eda54f2268e98a376a429931921a81b5c3a2873aab7ca4d775a8caac5498f8cbc7d0daeab947cf923dbd8e215d61671f9f4e392d34356
+  languageName: node
+  linkType: hard
+
+"sdp@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "sdp@npm:3.2.1"
+  checksum: 10c0/a534d91972d6c26016f0e814d8e0ca4db6ae714d1da58056d3bcf4660137aeddb71d9085a5dd5eb764d5cffca83ab3ee7446cb6eed36411cd1e93d2c929d7d80
   languageName: node
   linkType: hard
 
@@ -3296,6 +3346,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"uuid@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "uuid@npm:13.0.0"
+  bin:
+    uuid: dist-node/bin/uuid
+  checksum: 10c0/950e4c18d57fef6c69675344f5700a08af21e26b9eff2bf2180427564297368c538ea11ac9fb2e6528b17fc3966a9fd2c5049361b0b63c7d654f3c550c9b3d67
+  languageName: node
+  linkType: hard
+
 "vite@npm:^7.1.2":
   version: 7.1.5
   resolution: "vite@npm:7.1.5"
@@ -3348,6 +3407,15 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 10c0/782d2f20c25541b26d1fb39bef5f194149caff39dc25b7836e25f049ca919f2e2ce186bddb21f3f20f6195354b3579ec637a8ca08d65b117f8b6f81e3e730a9c
+  languageName: node
+  linkType: hard
+
+"webrtc-adapter@npm:^9.0.0":
+  version: 9.0.3
+  resolution: "webrtc-adapter@npm:9.0.3"
+  dependencies:
+    sdp: "npm:^3.2.0"
+  checksum: 10c0/bb8c1626cc0e18bd34c03074fc6a541666dbe473c8f063c5d0ea2a3a3a4887f498212a131c936777f660382185f44941476609a50df5f1543015240623375725
   languageName: node
   linkType: hard
 
