@@ -1,18 +1,39 @@
 import { Socket } from "socket.io";
 import { v4 as uuidv4 } from "uuid";
 
+const rooms: Record<string, string[]> = {};
+
+interface IRoomParams {
+  roomId: string;
+  peerId: string;
+}
+
 export const roomHandler = (socket: Socket) => {
-  const createRoom = () => {
+  const createRoom = ({ peerId }: { peerId: string }) => {
     const roomId = uuidv4();
+    rooms[roomId] = [peerId];
     socket.join(roomId);
-    socket.emit("room_created", { roomId });
-    console.log("a user created the room");
-  };
-  const joinRoom = ({ roomId }: { roomId: string }) => {
-    console.log("a user joined the room", roomId);
-    socket.join(roomId);
+    socket.emit("room-created", { roomId });
+    console.log("a user created the room", roomId, peerId);
   };
 
-  socket.on("create_room", createRoom);
-  socket.on("join_room", joinRoom);
+  const joinRoom = ({ roomId, peerId }: IRoomParams) => {
+    if (rooms[roomId]) {
+      // 중복 체크: 같은 peerId가 이미 있는지 확인
+      if (!rooms[roomId].includes(peerId)) {
+        rooms[roomId].push(peerId);
+        console.log("a user joined the room", roomId, peerId);
+      } else {
+        console.log("user already in room", roomId, peerId);
+      }
+      socket.join(roomId);
+      socket.emit("get-users", {
+        roomId,
+        participants: rooms[roomId],
+      });
+    }
+  };
+
+  socket.on("create-room", createRoom);
+  socket.on("join-room", joinRoom);
 };
