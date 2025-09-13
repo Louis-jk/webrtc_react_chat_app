@@ -1,12 +1,8 @@
 import './App.css';
-import { JoinButton } from './components/JoinButton';
+import { Home } from './pages/Home';
 
 function App() {
-  return (
-    <div className='flex justify-center items-center'>
-      <JoinButton />
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
